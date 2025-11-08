@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login / Register</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #c1f0e6, #ffeaea);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2.2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+      width: 92%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    h2 { margin-bottom: 1.2rem; font-weight:600; color:#333; }
+
+    .form-group { text-align:left; margin-bottom:0.9rem; }
+    label { display:block; margin-bottom:0.35rem; color:#555; font-size:0.9rem; }
+    input {
+      width:100%;
+      padding:10px;
+      border:1.5px solid #ddd;
+      border-radius:6px;
+      transition: all .2s;
+      box-sizing:border-box;
+    }
+    input:focus { border-color:#ff6b6b; box-shadow:0 0 6px rgba(255,107,107,0.18); outline:none; }
+
+    .btn {
+      width:100%;
+      padding:10px;
+      border:none;
+      border-radius:6px;
+      background:#ff6b6b;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+      margin-top:8px;
+    }
+    .btn:hover { background:#e65252; }
+
+    .link-text { margin-top:1rem; color:#555; font-size:0.92rem; }
+    .link-text span { color:#ff6b6b; cursor:pointer; font-weight:600; }
+
+    .hidden { display:none; }
+
+    .message {
+      margin-top:10px;
+      padding:9px 10px;
+      border-radius:6px;
+      font-weight:600;
+      display:none;
+    }
+    .message.success { background:#e6fff0; color:#0f8a4d; border:1px solid #c6f0d4; display:block; }
+    .message.error   { background:#fff0f0; color:#b00020; border:1px solid #f2c6c6; display:block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LOGIN -->
+    <div id="login-form">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="login-username">Username</label>
+        <input id="login-username" type="text" placeholder="Enter your username">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="Enter your password">
+      </div>
+      <button id="login-button" class="btn">Login</button>
+
+      <div id="login-message" class="message"></div>
+
+      <div class="link-text">Don't have an account? <span id="show-register">Register</span></div>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="register-form" class="hidden">
+      <h2>Register</h2>
+      <div class="form-group">
+        <label for="reg-username">Username</label>
+        <input id="reg-username" type="text" placeholder="Choose a username">
+      </div>
+      <div class="form-group">
+        <label for="reg-email">Email</label>
+        <input id="reg-email" type="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="reg-password">Password</label>
+        <input id="reg-password" type="password" placeholder="Create a password (min 6 chars)">
+      </div>
+      <button id="register-button" class="btn">Sign Up</button>
+
+      <div id="register-message" class="message"></div>
+
+      <div class="link-text">Already have an account? <span id="show-login">Login</span></div>
+    </div>
+  </div>
+
+  <script>
+    // Element refs
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const showRegister = document.getElementById('show-register');
+    const showLogin = document.getElementById('show-login');
+
+    const loginBtn = document.getElementById('login-button');
+    const registerBtn = document.getElementById('register-button');
+
+    const loginMsg = document.getElementById('login-message');
+    const registerMsg = document.getElementById('register-message');
+
+    // Toggle forms
+    showRegister.addEventListener('click', () => {
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+      clearMessages();
+    });
+    showLogin.addEventListener('click', () => {
+      registerForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+      clearMessages();
+    });
+
+    // Helpers
+    function showMessage(el, text, type='success') {
+      el.className = 'message ' + (type === 'success' ? 'success' : 'error');
+      el.textContent = text;
+      // keep it visible; user can click to change forms and it will be cleared
+    }
+    function clearMessages() {
+      [loginMsg, registerMsg].forEach(m => { m.style.display = ''; m.className = 'message'; m.textContent = ''; });
+    }
+    function saveUsers(users) {
+      localStorage.setItem('demo_users', JSON.stringify(users));
+    }
+    function loadUsers() {
+      try {
+        return JSON.parse(localStorage.getItem('demo_users') || '{}');
+      } catch (e) {
+        return {};
+      }
+    }
+
+    // Register logic
+    registerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('reg-username').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+
+      if (!username || !email || !password) {
+        showMessage(registerMsg, 'Please fill all fields.', 'error');
+        return;
+      }
+      if (password.length < 6) {
+        showMessage(registerMsg, 'Password must be at least 6 characters.', 'error');
+        return;
+      }
+
+      const users = loadUsers();
+      // username uniqueness check
+      if (users[username]) {
+        showMessage(registerMsg, 'Username already exists. Choose another.', 'error');
+        return;
+      }
+
+      // Save simple user record (NOTE: this is only for demo; passwords are stored in plain text in localStorage)
+      users[username] = { email, password };
+      saveUsers(users);
+
+      showMessage(registerMsg, 'Registration successful! You can now login.', 'success');
+
+      // Optionally auto-switch to login after a short delay:
+      setTimeout(() => {
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+        clearFormInputs();
+        clearMessages();
+        showMessage(loginMsg, 'Account created — please login.', 'success');
+      }, 900);
+    });
+
+    // Login logic
+    loginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('login-username').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (!username || !password) {
+        showMessage(loginMsg, 'Please enter username and password.', 'error');
+        return;
+      }
+
+      const users = loadUsers();
+      const user = users[username];
+
+      if (!user) {
+        showMessage(loginMsg, 'No account found with that username.', 'error');
+        return;
+      }
+      if (user.password !== password) {
+        showMessage(loginMsg, 'Incorrect password. Try again.', 'error');
+        return;
+      }
+
+      showMessage(loginMsg, 'Login successful — welcome back!', 'success');
+
+// Redirect to home page after 1 second
+setTimeout(() => {
+  window.location.href = "home.html";
+}, 1000);
+    });
+
+    function clearFormInputs() {
+      ['reg-username','reg-email','reg-password','login-username','login-password']
+        .forEach(id => document.getElementById(id).value = '');
+    }
+
+    // Initialize: ensure storage exists
+    if (!localStorage.getItem('demo_users')) saveUsers({});
+  </script>
+</body>
+</html>

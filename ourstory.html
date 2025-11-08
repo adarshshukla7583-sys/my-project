@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - SweetDelights</title>
+    <link rel="stylesheet" href="website.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+
+.story-page-hero {
+    height: 50vh;
+    background-image: url('https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.story-page-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-page-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.story-page-hero p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.story-page-content {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.story-section {
+    margin-bottom: 3rem;
+}
+
+.story-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #fde2e4;
+}
+
+.story-section p, .story-section li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4b5563;
+}
+
+.timeline {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.timeline li {
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.timeline li::before {
+    content: '🎂';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+}</style>
+</head>
+<body>
+
+    <nav>
+        <h1 class="logo">SweetDelights</h1>
+        <div class="navbar">
+            <a class="a1" href="home.html#home">Home</a>
+            <a class="a1" href="home.html#cakes">Cakes</a>
+            <a class="a1" href="home.html#about">About</a>
+            <a class="a1" href="home.html#reviews">Reviews</a>
+            <a class="a1" href="home.html#contact">Contact</a>
+            <a class="a1" href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> Cart</a>
+        </div>
+    </nav>
+
+    <div class="story-page-hero">
+        <div class="story-page-overlay">
+            <h1>The SweetDelights Story</h1>
+            <p>From a humble kitchen to the heart of the community</p>
+        </div>
+    </div>
+
+    <div class="story-page-content">
+        <div class="story-section">
+            <h2>The Baker's Dream</h2>
+            <p>Sweet Delights was born from the lifelong passion of our founder, Chef Maria Gonzalez. Since she was a child in her grandmother’s kitchen, Maria believed that a cake is more than just a dessert—it's a centerpiece of joy, celebration, and memory. In 2010, after years of perfecting her family's recipes and honing her skills in classic pastry arts, she opened the doors to Sweet Delights, a small neighborhood bakery with a big heart.</p>
+        </div>
+        
+        <div class="story-section">
+            <h2>Our Philosophy: Quality & Craftsmanship</h2>
+            <p>We are committed to the simple, powerful idea that the best cakes start with the best ingredients. We source our flour from local mills, our dairy from nearby farms, and our chocolate from fair-trade suppliers. Every single cake is handcrafted from scratch, with no shortcuts. Our bakers pour their expertise and love into every mix, every frosting swirl, and every delicate detail, ensuring that what you receive is not just beautiful, but truly unforgettable.</p>
+        </div>
+
+        <div class="story-section">
+            <h2>A Timeline of Sweetness</h2>
+            <ul class="timeline">
+                <li><strong>2010</strong> - SweetDelights opens its first shop on Dessert Lane.</li>
+                <li><strong>2014</strong> - Voted "Best Bakery in Sweetville" by the local gazette.</li>
+                <li><strong>2018</strong> - Expanded our menu to include custom wedding cake consultations.</li>
+                <li><strong>2022</strong> - Launched our online ordering system to share our delights with more people.</li>
+                <li><strong>Today</strong> - Continuing our tradition of crafting joy, one cake at a time.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer1">
+            <h1 class="logoname">SweetDelights</h1>
+            <p class="logotitle">Celebrating life's sweet moments with artisan cakes made from premium ingredients.</p>
+        </div>
+        <div class="footer2">
+            <ul><b class="quick">Quick Links</b>
+                <li><a class="a2" href="home.html#home">Home</a></li>
+                <li><a class="a2" href="home.html#cakes">Cakes</a></li>
+                <li><a class="a2" href="home.html#about">About Us</a></li>
+                <li><a class="a2" href="home.html#reviews">Reviews</a></li>
+                <li><a class="a2" href="home.html#contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer3">
+            <ul><b class="quick">Customer Service</b>
+                <li><a class="a2" href="#">FAQs</a></li>
+                <li><a class="a2" href="#">Shipping Policy</a></li>
+                <li><a class="a2" href="#">Refund Policy</a></li>
+                <li><a class="a2" href="#">Terms of Service</a></li>
+                <li><a class="a2" href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer4"><b class="quick">Newsletter</b>
+            <p class="a2">Subscribe for updates on new flavors and special offers.</p>
+            <div class="last">
+                <input type="email" id="emailinfooter" placeholder="Enter your email">
+                <button class="searchbarf">SUBSCRIBE</button>
+            </div>
+        </div>
+        <div class="copyright">© 2025 Sweet Delights. All rights reserved.</div>
+    </div>
+
+</body>
+</html>

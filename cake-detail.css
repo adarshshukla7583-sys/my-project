@@ -1,0 +1,571 @@
+/* Import Google Fonts for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .a1 {
+    color: #333;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s;
+    font-weight: 500;
+}
+
+.navspan {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    border-radius: 5px;
+    top: 0;
+    left: 98px;
+    background: #ff6b6b;
+    z-index: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navbar .a1:nth-child(1):hover~.navspan {
+    left: 0;
+    width: 90px;
+}
+
+.navbar .a1:nth-child(2):hover~.navspan {
+    left: 98px;
+    width: 90px;
+}
+
+.navbar .a1:nth-child(3):hover~.navspan {
+    left: 195px;
+    width: 90px;
+}
+
+.navbar .a1:nth-child(4):hover~.navspan {
+    left: 290px;
+    width: 110px;
+}
+
+.navbar .a1:nth-child(5):hover~.navspan {
+    left: 405px;
+    width: 110px;
+}
+
+.navbar .a1:nth-child(6):hover~.navspan {
+    left: 520px;
+    width: 85px;
+}
+
+.navbar .a1:hover {
+    color: #fff;
+}
+
+/* Main Product Container */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.product-image {
+    flex: 1 1 400px;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-details {
+    flex: 1 1 500px;
+}
+
+.cake-title {
+    font-size: 2.5rem;
+    margin-top: 0;
+    color: #333;
+}
+
+.cake-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.cake-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin: 1.5rem 0;
+}
+
+.customization-options .option-group {
+    margin-bottom: 1.5rem;
+}
+
+.customization-options label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.customization-options select,
+.customization-options input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    /* Add this line */
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+.btn-buy,
+.btn-add-to-cart {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-buy {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.btn-buy:hover {
+    background-color: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-to-cart {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* Overlay & Cart Sidebar Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 110;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 120;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    margin: 0;
+}
+
+.close-cart-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.cart-items {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart-empty {
+    text-align: center;
+    color: #888;
+    margin-top: 50%;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.cart-item-price {
+    color: #888;
+    margin: 0;
+}
+
+.cart-item-quantity {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ff6b6b;
+    cursor: pointer;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f9f9f9;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #ff4757;
+}
+
+
+/* ==== UPDATED CUSTOMER REVIEW STYLES ==== */
+.customer-reviews-section {
+    padding: 5rem 5%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.reviews-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 4rem;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Aligns cards to the top */
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(223, 170, 193, 0.3);
+    border: 1px solid #fceef5;
+    padding: 2rem;
+    width: 100%;
+    max-width: 340px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    /* A simple lift effect on hover */
+    box-shadow: 0 15px 30px rgba(223, 170, 193, 0.4);
+}
+
+/* No more rotation or staggering */
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+    border: 2px solid #ffdde0;
+    /* Fixed the border color */
+}
+
+.reviewer-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.star-rating .fas,
+.star-rating .fas-star-half-alt {
+    color: #ffc107;
+}
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Payment Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.close-modal {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.btn-pay {
+    width: 100%;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-pay:hover {
+    background-color: #ff4757;
+}
+
+/* ==== NEW: Payment Success Modal Styles ==== */
+.success-content {
+    text-align: center;
+    padding: 40px 30px;
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: #28a745;
+    /* Green color for success */
+    margin-bottom: 20px;
+}
+
+.success-content h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.success-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn-success-close {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-success-close:hover {
+    background-color: #ff4757;
+}

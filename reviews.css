@@ -1,0 +1,83 @@
+body {
+    background-color: #fff9fb;
+    font-family: 'Poppins', sans-serif;
+}
+
+.all-reviews-container {
+    padding: 4rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.all-reviews-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-family: 'Poppins', serif;
+    color: #292f36;
+    margin-bottom: 3rem;
+}
+
+.reviews-grid {
+    display: grid;
+    /* This creates a responsive grid that fits as many cards as possible */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.review-card-full {
+    background: #ffffff;
+    border: 1px solid #f0e4e8;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card-full:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 2px solid #ff6b6b;
+    object-fit: cover;
+}
+
+.reviewer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #292f36;
+}
+
+.star-rating .fas,
+.star-rating .fa-star-half-alt,
+.star-rating .far {
+    /* Added .far for empty star */
+    color: #f9d71c;
+}
+
+.review-text {
+    font-style: italic;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-top: auto;
+    /* Aligns text if cards have different heights */
+}

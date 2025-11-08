@@ -1,0 +1,42 @@
+*{margin: 0;padding: 0;}
+
+.navspan {
+    position: absolute;
+    height: 4rem;
+    width: 15%;
+
+    border-radius: 10px;
+
+    top: 0;
+    left: 0;
+    background: #ff6b6b;
+    z-index: 0;
+    transition: 1s;
+
+    border: 1px solid black;
+}
+
+.a1:nth-child(1):hover~.navspan {
+    left: 0;
+
+}
+
+.a1:nth-child(2):hover~.navspan {
+    left: 16%;
+}
+
+.a1:nth-child(3):hover~.navspan {
+    left: 32%;
+}
+
+.a1:nth-child(4):hover~.navspan {
+    left: 48%;
+}
+
+.a1:nth-child(5):hover~.navspan {
+    left: 66%;
+}
+
+.a1:nth-child(6):hover~.navspan {
+    left: 85%;
+}

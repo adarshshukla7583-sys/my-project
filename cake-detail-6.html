@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Dream - muskycake</title>
+    <link rel="stylesheet" href="website.css">
+    <link rel="stylesheet" href="cake-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cake Details - muskycake</title>
+
+        <link rel="stylesheet" href="website.css">
+        <link rel="stylesheet" href="cake-detail.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <style>
+            .navspan {
+                position: absolute;
+                height: 4rem;
+                width: 15%;
+                border-radius: 10px;
+
+                top: 0;
+                left: 16%;
+                background: #ff6b6b;
+                z-index: 0;
+                transition: 1s;
+
+                border: 1px solid black;
+            }
+
+            .a1:nth-child(1):hover~.navspan {
+                left: 0;
+
+            }
+
+            .a1:nth-child(2):hover~.navspan {
+                left: 16%;
+            }
+
+            .a1:nth-child(3):hover~.navspan {
+                left: 32%;
+            }
+
+            .a1:nth-child(4):hover~.navspan {
+                left: 48%;
+            }
+        </style>
+
+    </head>
+
+<body>
+    <nav>
+        <h1 class="logo">SweetDelights</h1>
+        <div class="navbar">
+            <a class="a1" href="home.html">home</a>
+            <a class="a1" href="website1.html#cakes">cakes</a>
+            <a class="a1" href="home.html">about</a>
+            <a class="a1" href="reviews.html">reviews</a>
+            <a class="a1" href="home.html">contact</a>
+            <a class="a1" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                        d="M0 1a1 1 0 0 1 1-1h1.11a1 1 0 0 1 .97.757L3.89 3H14a1 1 0 0 1 .97 1.243l-1.5 6A1 1 0 0 1 12.5 11H5.12a1 1 0 0 1-.98-.804L3.01 3.607 2.39 2H1a1 1 0 0 1-1-1zm4.5 12a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm7 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                </svg>
+                Cart
+            </a><span class="navspan"></span>
+        </div>
+    </nav>
+
+    <main class="product-container">
+        <div class="product-image">
+            <img src='sixthcake.jpg' alt="secondcake">
+        </div>
+        <div class="product-details">
+            <h1 class="cake-title">White Rose Celebration Cake</h1>
+            <p class="cake-description">A beautifully frosted white cake adorned with red buttercream roses and green
+                leaves. The roses are placed around the top edge and base, creating a vibrant floral contrast against
+                the white icing. The neat piping and floral design make it look festive and traditional</p>
+            <p class="cake-price">&#8377;399.00</p>
+
+            <div class="customization-options">
+                <div class="option-group">
+                    <label for="cake-size">Select Size:</label>
+                    <select id="cake-size" name="cake-size">
+                        <option value="6">6-inch (Serves 8-10)</option>
+                        <option value="8">8-inch (Serves 12-15)</option>
+                        <option value="10">10-inch (Serves 20-25)</option>
+                    </select>
+                </div>
+                <div class="option-group">
+                    <label for="cake-message">Message on Cake (optional):</label>
+                    <input type="text" id="cake-message" name="cake-message" placeholder="e.g., Happy Birthday!">
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-buy">Buy Now</button>
+                <button class="btn-add-to-cart" data-name="White Rose Celebration Cake" data-price="399.00"
+                    data-image="sixthcake.jpg">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    </main>
+    <section class="customer-reviews-section">
+        <h2 class="reviews-title">What Our Customers Say</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Customer Avatar"
+                        class="reviewer-avatar">
+                    <div class="reviewer-info">
+                        <p class="reviewer-name">Sarah J.</p>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">"The cake was absolutely stunning and tasted even better! It was the highlight of
+                    my daughter' s birthday party. Will definitely order again!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Customer Avatar"
+                        class="reviewer-avatar">
+                    <div class="reviewer-info">
+                        <p class="reviewer-name">Michael B.</p>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">"Our wedding cake was exactly as we imagined! The team was so helpful with the
+                    design process and the cake was delicious too!"</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Customer Avatar"
+                        class="reviewer-avatar">
+                    <div class="reviewer-info">
+                        <p class="reviewer-name">Emily R.</p>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p class="review-text">"I've ordered several cakes from Sweet Delights and they never disappoint. The
+                    quality is consistent and the designs are always beautiful!"</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="footer1">
+            <h1 class="logoname">cake shop</h1>
+            <p class="logotitle">Celebrating life's sweet moments with artisan cakes made from premium ingredients
+            </p>
+        </div>
+        <div class="footer2">
+            <ul><b class="quick">Quick Link</b>
+                <li><a class="a2" href="#home">home</a></li>
+                <li><a class="a2" href="#home">cakes</a></li>
+                <li><a class="a2" href="#home">review</a></li>
+                <li><a class="a2" href="#home">about us</a></li>
+                <li><a class="a2" href="#home">contact us</a></li>
+            </ul>
+        </div>
+        <div class="footer3">
+            <ul><b class="quick">Customer Service</b>
+                <li><a class="a2" href="#home">FAQs</a></li>
+                <li><a class="a2" href="#home">Shipping Policy</a></li>
+                <li><a class="a2" href="#home">Refund Policy</a></li>
+                <li><a class="a2" href="#home">Terms of service</a></li>
+                <li><a class="a2" href="#home">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer4"><b class="quick">Newsletter</b>
+            <p class="a2">subscribe to get updates on new flavors and special offers.</p>
+            <div class="last">
+                <input type="email" id="emailinfooter" placeholder="enter email to subscribe">
+                <button class="searchbarf">SUBSCRIBE</button>
+            </div>
+        </div>
+        <div class="copyright">© 2023 Sweet Delights. All rights reserved.</div>
+    </div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total:</strong> <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="buy-button">Proceed to Buy</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <div id="payment-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Your Purchase</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label for="card-name">Cardholder Name</label>
+                        <input type="text" id="card-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-pay">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your delicious cake is on its way!</p>
+            <button id="close-success-modal" class="btn-success-close">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+
+</html>

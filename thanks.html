@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - SweetDelights</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff9fb;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .thankyou-box {
+      text-align: center;
+      background: white;
+      border-radius: 15px;
+      padding: 3rem 4rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .thankyou-box h1 {
+      font-family: 'Dancing Script', cursive;
+      color: #ff6b6b;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .thankyou-box p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 2rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: #ff6b6b;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #e74a4a;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Make responsive */
+    @media (max-width: 600px) {
+      .thankyou-box {
+        padding: 2rem;
+      }
+
+      .thankyou-box h1 {
+        font-size: 2.3rem;
+      }
+
+      .thankyou-box p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="thankyou-box">
+    <h1>Thank You!</h1>
+    <p>Your message has been sent successfully.<br>We’ll get back to you soon.</p>
+    <a href="home.html" class="back-btn">Back to Home</a>
+  </div>
+</body>
+</html>
